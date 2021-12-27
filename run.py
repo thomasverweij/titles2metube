@@ -24,7 +24,7 @@ if __name__ == "__main__":
     ids = [search_youtube_id(title, youtube) for title in titles]
     status = [request_metube_download(id) for id in ids]
 
-    if list(map(lambda x: x == '{"status": "ok"}', status)):
+    if all(list(map(lambda x: x == '{"status": "ok"}', status))):
         print("Success")
     else:
         print("Errors occured")
